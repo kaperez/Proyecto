@@ -1,0 +1,50 @@
+﻿@model IEnumerable<prjProyecto.Models.Entrega>
+
+@{
+                /**/
+
+
+                ViewBag.Title = "Reporte Transacciones por Fecha";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Fecha Inicial: @Html.TextBox("SearchDate") &nbsp;
+    </p>
+    <p>
+        Fecha Final: @Html.TextBox("SearchDate2") &nbsp;
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.EntregaId)
+        </th>
+        <th style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.EntregaFecha)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td style="color:aliceblue">
+            @Html.DisplayFor(modelItem => item.EntregaId)
+        </td>
+        <td style="color:aliceblue">
+            @Html.DisplayFor(modelItem => item.EntregaFecha)
+        </td>
+    </tr>
+    }
+
+</table>
+<div style="color:aliceblue">
+    @Html.Label("00")
+
+</div>

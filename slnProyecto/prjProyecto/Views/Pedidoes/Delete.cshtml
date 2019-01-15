@@ -1,0 +1,40 @@
+﻿@model prjProyecto.Models.Pedido
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color:aliceblue">Eliminar</h2>
+
+<h3 style="color:aliceblue">Está seguro que desea eliminar esto?</h3>
+<div>
+    <h4 style="color:aliceblue">Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.Cliente.ClienteRUC)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.Cliente.ClienteRUC)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.PedidoFecha)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.PedidoFecha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "text-danger" })
+        </div>
+    }
+</div>

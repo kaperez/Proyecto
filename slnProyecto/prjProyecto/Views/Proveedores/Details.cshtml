@@ -1,0 +1,66 @@
+﻿@model prjProyecto.Models.Proveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:aliceblue">Detalles</h2>
+
+<div>
+    <h4 style="color:aliceblue">Proveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorRUC)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProveedorRUC)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorRazonSocial)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProveedorRazonSocial)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorNombreContacto)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProveedorNombreContacto)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorDireccion)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProveedorDireccion)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorTelefono)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProveedorTelefono)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProveedorEmail)
+        </dt>
+
+        <dd style="color:aliceblue"> 
+            @Html.DisplayFor(model => model.ProveedorEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProveedorId }, new { @class = "text-danger" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "text-danger" })
+</p>

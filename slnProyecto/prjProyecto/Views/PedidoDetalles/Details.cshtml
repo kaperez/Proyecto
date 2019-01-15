@@ -1,0 +1,50 @@
+﻿@model prjProyecto.Models.PedidoDetalle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:aliceblue">Detalles</h2>
+
+<div>
+    <h4 style="color:aliceblue">Pedido Detalle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.Pedidos.PedidoId)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.Pedidos.PedidoId)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.Productos.ProductoDescripcion)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.Productos.ProductoDescripcion)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.PrecioUnitario)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.PrecioUnitario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PedidoDetalleId }, new { @class = "text-danger" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "text-danger" })
+</p>

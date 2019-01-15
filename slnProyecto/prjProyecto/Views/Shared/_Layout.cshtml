@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body background="~/Content/Imagen/pa.jpg" >
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:saddlebrown">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ASOVENSEP S.A", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                            <li>@Html.ActionLink("Productos", "Index", "Productoes")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personas Jurídicas<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                            <li>@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registros<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Entregas", "Index", "Entregas")</li>
+                            <li>@Html.ActionLink("Pedidos", "Index", "Pedidoes")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transacciones<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Venta", "NuevoPedido", "Venta")</li>
+                            <li>@Html.ActionLink("Compra", "NuevaEntrega", "Compra")</li>
+                            <li>@Html.ActionLink("Reportes", "Buscar", "Fechas")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+       
+        @RenderBody()
+        <hr />
+        <footer style="color: aliceblue">
+            <p>&copy; @DateTime.Now.Year - ASOVENSEP S.A</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

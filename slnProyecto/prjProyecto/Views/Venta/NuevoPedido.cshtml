@@ -1,0 +1,86 @@
+﻿@model prjProyecto.ViewModels.PedidoView
+@{
+    ViewBag.Title = "NuevoPedido";
+    decimal total = 0;
+}
+
+<h2 style="color:aliceblue">Nuevo Pedido</h2>
+
+@using (Html.BeginForm("NuevoPedido", "Venta", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 style="color:aliceblue">Pedido</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cliente.ClienteId, "ClienteId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ClienteId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cliente.ClienteId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Agregar Producto", "agregarProducto", new { }, new { @class = "btn btn-default" }) |
+                <input type="submit" value="Facturar" class="btn btn-default" />
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+
+                <th style="color:aliceblue">
+                    @Html.DisplayNameFor(model => model.ProductoPedidos.ProductoDescripcion)
+                </th>
+                <th style="color:aliceblue">
+                    @Html.DisplayNameFor(model => model.ProductoPedidos.Cantidad)
+                </th>
+                <th style="color:aliceblue">
+                    @Html.DisplayNameFor(model => model.ProductoPedidos.ProductoPrecio)
+                </th>
+                <th style="color:aliceblue">
+                    @Html.DisplayNameFor(model => model.ProductoPedidos.Subtotal)
+                </th>
+                <th></th>
+            </tr>
+
+            @for (int i = 0; i < Model.ProductosPedidos.Count; i++)
+            {
+                <tr>
+                    <td style="color:aliceblue">
+                        @Html.DisplayFor(modelItem => Model.ProductosPedidos[i].ProductoDescripcion)
+                    </td>
+                    <td style="color:aliceblue">
+                        @Html.DisplayFor(modelItem => Model.ProductosPedidos[i].Cantidad)
+                    </td>
+                    <td style="color:aliceblue">
+                        @Html.DisplayFor(modelItem => Model.ProductosPedidos[i].ProductoPrecio)
+                    </td>
+                    <td style="color:aliceblue">
+                        @Html.DisplayFor(modelItem => Model.ProductosPedidos[i].Subtotal)
+                    </td>
+                    <td style="color:aliceblue">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductosPedidos[i].ProductoId }, new { @class = "text-danger" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.ProductosPedidos[i].ProductoId }, new { @class = "text-danger" })
+                    </td>
+                </tr>
+                total += Model.ProductosPedidos[i].Subtotal;
+            }
+
+        </table>
+
+        <div style="color:aliceblue">
+            @Html.Label("Total: " + total, total)
+
+        </div>
+
+    </div>
+}
+
+

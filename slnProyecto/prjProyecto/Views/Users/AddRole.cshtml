@@ -1,0 +1,23 @@
+﻿@model prjProyecto.ViewModels.UserView
+@{
+    ViewBag.Title = "AddRole";
+}
+
+<h2>AddRole to user: @Model.Name</h2>
+<h3>@ViewBag.Error</h3>
+
+@using (Html.BeginForm("AddRole", "Users", new { userID = Model.UserId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role.RoleId, "RoleId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RoleId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Role.RoleId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.ActionLink("Return to user", "Roles", new { userID = Model.UserId }, new { @class = "btn btn-info" })
+        <input type="submit" value="Add Role" class="btn btn-success" />
+    </div>
+}

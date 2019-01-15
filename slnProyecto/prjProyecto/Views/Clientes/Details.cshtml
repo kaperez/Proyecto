@@ -1,0 +1,66 @@
+﻿@model prjProyecto.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:aliceblue">Detalles</h2>
+
+<div>
+    <h4 style="color:aliceblue">Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteRUC)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteRUC)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteRazonSocial)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteRazonSocial)
+        </dd>
+
+        <dt style="color:aliceblue"> 
+            @Html.DisplayNameFor(model => model.ClienteNombreContacto)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteNombreContacto)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteDireccion)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteDireccion)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteTelefono)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteTelefono)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteEmail)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ClienteEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteId }, new { @class = "text-danger" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "text-danger" })
+</p>

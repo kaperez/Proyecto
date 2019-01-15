@@ -1,0 +1,63 @@
+﻿@model IEnumerable<prjProyecto.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:aliceblue">Index</h2>
+
+<p style="color: aliceblue">
+    @Html.ActionLink("Añadir", "Create",null, new { @class = "text-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteRUC)
+        </th>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteRazonSocial)
+        </th>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteNombreContacto)
+        </th>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteDireccion)
+        </th>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteTelefono)
+        </th>
+        <th style="color: aliceblue">
+            @Html.DisplayNameFor(model => model.ClienteEmail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteRUC)
+        </td>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteRazonSocial)
+        </td>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteNombreContacto)
+        </td>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteDireccion)
+        </td>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteTelefono)
+        </td>
+        <td style="color: aliceblue">
+            @Html.DisplayFor(modelItem => item.ClienteEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ClienteId }, new { @class = "text-danger" }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ClienteId }, new { @class = "text-danger" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ClienteId }, new { @class = "text-danger" })
+        </td>
+    </tr>
+}
+
+</table>

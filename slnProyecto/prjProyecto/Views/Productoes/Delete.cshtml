@@ -1,0 +1,56 @@
+﻿@model prjProyecto.Models.Producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color:aliceblue">Eliminar</h2>
+
+<h3 style="color:aliceblue">Está seguro que desea eliminar esto?</h3>
+<div>
+    <h4 style="color:aliceblue">Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.Categoria.CategoriaNombre)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.Categoria.CategoriaNombre)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProductoDescripcion)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProductoDescripcion)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProductoCantidad)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProductoCantidad)
+        </dd>
+
+        <dt style="color:aliceblue">
+            @Html.DisplayNameFor(model => model.ProductoPrecio)
+        </dt>
+
+        <dd style="color:aliceblue">
+            @Html.DisplayFor(model => model.ProductoPrecio)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "text-danger" })
+        </div>
+    }
+</div>
